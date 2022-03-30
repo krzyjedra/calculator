@@ -1,5 +1,4 @@
 object calculator extends App {
   def main(n: Int) = n * n
-
-  println(10)
+  def main2(n: Int) = n * n
 }
