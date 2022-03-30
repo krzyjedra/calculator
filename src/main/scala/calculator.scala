@@ -1,6 +1,11 @@
-object calculator extends App {
-  def main(n: Int) = n * n
-  def main2(n: Int) = n * n
+import scala.io.Source
 
-  def lsssss(ls: List[Int]) = ???
+object calculator extends App {
+
+  val lines = Source.fromFile("instructions.txt").getLines.toSeq
+    lines.foldLeft(0){(result, line) =>
+    case line.startsWith
+    }
+
+  case class Sum (x: Long, y: Long)
 }
