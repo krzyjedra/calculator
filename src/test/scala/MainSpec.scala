@@ -15,9 +15,14 @@ class MainSpec extends AnyFlatSpec with should.Matchers {
   }
 
   val lines = Source.fromFile("instructions.txt").getLines.toSeq
-  val commands = Seq("+ 2 2", "- 1", "* 4", "+ 2", "/ 3", "/ 2 2")
+  val result = Seq("+ 2 2", "- 1", "* 4", "+ 2", "/ 3", "/ 2 2")
+  val commands = List(Ignore("+ 2 2"), Add(10), Multiply(4), Subtract(10), Divide(3), Ignore("/ 2 2"))
 
   "lines" should "read lines from file and return as Seq of strings" in {
-    lines should be(commands)
+    lines should be(result)
+  }
+
+  "calculator.execute" should "execute mathematical operations" in {
+    calculator.execute(commands) should be(10)
   }
 }
