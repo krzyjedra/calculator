@@ -1,0 +1,6 @@
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\a.szczepanik\Projekty\calculator\src\main\scala\calculator.scala:67:26: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: List(_, _, _), Nil[0m
+[0m[[0m[33mwarn[0m] [0m[0m      line.split("\\s+").toList match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                         ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m1 deprecation (since 2.13.3); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
