@@ -4,7 +4,7 @@ import flatspec._
 import matchers._
 import scala.io.Source
 
-class MainSpec extends AnyFlatSpec with should.Matchers {
+class CalculatorSpec extends AnyFlatSpec with should.Matchers {
 
   import calculator._
 
@@ -16,14 +16,17 @@ class MainSpec extends AnyFlatSpec with should.Matchers {
   }
 
   val lines = Source.fromFile("instructions.txt").getLines.toSeq
-  val result = Seq("+ 2 2", "- 1", "* 4", "+ 2", "/ 3", "/ 2 2")
-  val commands = List(Ignore("+ 2 2"), Add(2), Multiply(5), Subtract(2, negation = true), Divide(1), Ignore("/ 2 2"))
+  val result = Seq("+ 2", "-", "* 4", "# + 21 2 3", "/ 3", "PRINT", "* 22", "/ 33", "- 21", "PRINT")
+
+  val commandsWithNegation = List(Ignore("+ 2 2"), Add(2), Multiply(5), Subtract(2, negation = true), Divide(1), Ignore("/ 2 2"))
+  val commandsNoNegation = List(Ignore("+ 2 2"), Add(2), Multiply(5), Subtract(2, negation = false), Divide(1), Ignore("/ 2 2"))
 
   "lines" should "read lines from file and return as Seq of strings" in {
     lines should be(result)
   }
 
   "calculator.execute" should "execute mathematical operations" in {
-    calculator.execute(commands) should be(-10)
+    calculator.execute(commandsWithNegation) should be(-10)
+    calculator.execute(commandsNoNegation) should be(10)
   }
 }
