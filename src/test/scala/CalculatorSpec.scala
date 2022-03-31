@@ -27,6 +27,6 @@ class CalculatorSpec extends AnyFlatSpec with should.Matchers {
 
   "calculator.execute" should "execute mathematical operations" in {
     calculator.execute(commandsWithNegation) should be(-10)
-    calculator.execute(commandsNoNegation) should be(10)
+    calculator.execute(commandsNoNegation) should be(8)
   }
 }
