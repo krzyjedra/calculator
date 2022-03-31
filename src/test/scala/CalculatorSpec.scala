@@ -18,12 +18,12 @@ class CalculatorSpec extends AnyFlatSpec with should.Matchers {
   val lines = Source.fromFile("instructions.txt").getLines.toSeq
   val result = Seq("+ 2", "-", "* 4", "# + 21 2 3", "/ 3", "PRINT", "* 22", "/ 33", "- 21", "PRINT")
 
-  val commandsWithNegation = List(Ignore("+ 2 2"), Add(2), Multiply(5), Subtract(2, negation = true), Divide(1), Ignore("/ 2 2"))
-  val commandsNoNegation = List(Ignore("+ 2 2"), Add(2), Multiply(5), Subtract(2, negation = false), Divide(1), Ignore("/ 2 2"))
-
   "lines" should "read lines from file and return as Seq of strings" in {
     lines should be(result)
   }
+
+  val commandsWithNegation = List(Ignore("+ 2 2"), Add(2), Multiply(5), Subtract(2, negation = true), Divide(1), Ignore("/ 2 2"))
+  val commandsNoNegation = List(Ignore("+ 2 2"), Add(2), Multiply(5), Subtract(2, negation = false), Divide(1), Ignore("/ 2 2"))
 
   "calculator.execute" should "execute mathematical operations" in {
     calculator.execute(commandsWithNegation) should be(-10)
